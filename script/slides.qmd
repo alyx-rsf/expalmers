@@ -20,6 +20,7 @@ library(ggplot2)
 library(palmerpenguins)
 
 ```
+![](img/logo.png){fig-align='center'}
 
 ## Gráfico
 
@@ -41,3 +42,4 @@ ggplot(data = penguins,
        shape = "Sexo",
        title = "Dispersão por espécie e sexo")
 ```
+
