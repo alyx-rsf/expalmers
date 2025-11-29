@@ -1,0 +1,43 @@
+---
+title: "<br> Exercício 8"
+subtitle: "Palmer Penguins"
+author: "Alyx R. S. de Freitas"
+date: "11/29/2025"
+format: 
+  revealjs:
+    footer: "Gráficos utilizando Palmer Penguins"
+    theme: serif
+    transition: slide
+---
+
+## Setup
+
+```{r}
+#| label: setup
+#| echo: true
+library(tidyverse)
+library(ggplot2)
+library(palmerpenguins)
+
+```
+
+## Gráfico
+
+Comprimento de nadadeira e bico por sexo e espécie
+
+```{r}
+#| echo: true
+ggplot(data = penguins,
+       aes(x = bill_length_mm,
+           y = flipper_length_mm,
+           color = species,
+           shape = sex)) +
+  geom_point(size = 3, alpha = .6) +
+  scale_color_manual(values = c("purple", "darkorange", "cyan4")) +
+  theme_minimal(base_size = 15) +
+  labs(x = "Comprimento do bico (mm)",
+       y = "Comprimento da nadadeira (mm)",
+       color = "Espécies",
+       shape = "Sexo",
+       title = "Dispersão por espécie e sexo")
+```
