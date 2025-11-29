@@ -1,0 +1,54 @@
+---
+title: "<br> Exercício 8"
+subtitle: "Palmer Penguins"
+author: "Alyx R. S. de Freitas"
+date: "11/29/2025"
+format: 
+  revealjs:
+    footer: "Gráficos utilizando Palmer Penguins"
+    theme: serif
+    transition: slide
+---
+
+## Setup
+
+```{r}
+#| label: setup
+#| echo: true
+
+library(ggplot2)
+library(palmerpenguins)
+penguins_na <- na.omit(penguins)
+
+```
+![](img/logo.png){fig-align='center'}
+
+##
+
+Comprimento e espessura de bico por sexo e espécie
+![](img/images.jpg){.absolute width=50% right=-100 top=200}
+![](img/culmen_depth.png){.absolute width=50% left=-100 top=200}
+
+## Gráfico
+
+
+```{r}
+#| echo: true
+#| fig-align: center
+#| output-location: slide
+#| code-line-numbers: "1|2-5|6-8|9-13"
+ggplot(data = penguins_na,
+       aes(x = bill_length_mm,
+           y = bill_depth_mm,
+           color = species,
+           shape = sex)) +
+  geom_point(size = 3, alpha = .6) +
+  scale_color_manual(values = c("purple", "darkorange", "cyan4")) +
+  theme_minimal(base_size = 15) +
+  labs(x = "Comprimento do bico (mm)",
+       y = "Espessura do bico (mm)",
+       color = "Espécies",
+       shape = "Sexo",
+       title = "Dispersão por espécie e sexo")
+```
+
